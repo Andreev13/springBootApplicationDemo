@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/crud_application?useSSL=false"
+    username: "admin"
+    password: "admin"
+  kafka:
+    bootstrap-servers: "tvldq-ekp000022.delta.sbrf.ru:9092,tvldq-ekp000023.delta.sbrf.ru:9092,tvldq-ekp000024.delta.sbrf.ru:9092"
+server:
+  port: 1313
+grpc:
+  server:
+    port: 2332
+  client:
+    call-sever:
+      address: static://localhost:2332
+      negotiationType: plaintext
