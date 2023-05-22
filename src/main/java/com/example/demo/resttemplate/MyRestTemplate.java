@@ -15,6 +15,8 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Map;
+
 @Component
 @Slf4j
 @AllArgsConstructor
@@ -23,7 +25,7 @@ public class MyRestTemplate {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
 
-    public void callGetRequestStab(){
+    public String callGetRequestStab(){
         String url = "http://localhost:1314/call";
         log.info("Вызов заглушки " + url);
         HttpHeaders headers = new HttpHeaders();
@@ -32,10 +34,10 @@ public class MyRestTemplate {
 //        log.info(entity.getHeaders().toString());
 //        log.info(entity.getBody().toString());
 //        var response = restTemplate.postForObject(url, entity, Information.class);
-
+        ResponseEntity<String> response2 = null;
 
         try {
-            var response2 = restTemplate.postForEntity(url, entity, String.class);
+            response2 = restTemplate.postForEntity(url, entity, String.class);
             log.info("headers:  " + response2.getHeaders().toString());
             log.info("Сообщение от заглушки: " + response2.getBody());
 //            JsonNode body = objectMapper.readTree(response.getMassage());
@@ -45,6 +47,6 @@ public class MyRestTemplate {
         } catch (Exception e) {
             log.error("Не удалось подключиться к заглушке " + e.getMessage());
         }
-
+        return response2.getBody();
     }
 }

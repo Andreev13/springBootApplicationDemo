@@ -11,6 +11,6 @@ public interface UserService {
     void addUser(User user);
     List<User> getAllUsers();
     void deleteUser(Long id);
-    UserCards getUserCardsById(Long id);
+    String getUserCardsById(Long id);
 //    UserCards mappingUserCards(Map<String, Object> map);
 }

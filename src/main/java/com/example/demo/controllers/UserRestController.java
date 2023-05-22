@@ -42,10 +42,10 @@ public class UserRestController {
         return "Пользователь c id - " + id + " удален";
     }
 
-    @GetMapping("/userscard/{id}")
-    public UserCards getUserCard(@PathVariable Long id){
-//        log.info(String.valueOf(id));
-        return userService.getUserCardsById(id);
-    }
+//    @GetMapping("/userscard/{id}")
+//    public String getUserCard(@PathVariable Long id){
+////        log.info(String.valueOf(id));
+//        return userService.getUserCardsById(id);
+//    }
 
 }

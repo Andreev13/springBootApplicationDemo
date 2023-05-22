@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -33,5 +34,11 @@ public class User {
     )
     private List<Card> cards;
 
+    public User(Long id, String name, int age, String city) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
 }
 

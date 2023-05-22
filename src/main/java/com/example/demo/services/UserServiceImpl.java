@@ -47,9 +47,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserCards getUserCardsById(Long id) {
+    public String getUserCardsById(Long id) {
         myRestTemplate.callGetRequestStab();
-        return userRepository.getUserCardById(id);
+//        return userRepository.getUserCardById(id);
+        return myRestTemplate.callGetRequestStab();
 //        var userCards = new UserCards(
 //                map.get("name").toString(),
 //                map.get("number") != null ? Integer.parseInt(map.get("number").toString()) : 1,
