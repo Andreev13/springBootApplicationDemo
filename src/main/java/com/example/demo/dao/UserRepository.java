@@ -16,8 +16,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT new com.example.demo.dto.UserCards(u.name, c.number, c.createdDate, c.closedDate) " +
             "FROM User u LEFT JOIN u.cards c " +
-            "WHERE u.id = :id"
-    )
+            "WHERE u.id = :id")
     UserCards getUserCardById(@Param("id") Long id);
 
 }

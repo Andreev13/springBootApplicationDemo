@@ -1,16 +1,13 @@
 package com.example.demo.services;
 
 import com.example.demo.dao.UserRepository;
-import com.example.demo.dto.UserCards;
 import com.example.demo.models.User;
 import com.example.demo.resttemplate.MyRestTemplate;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 
@@ -29,9 +26,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addUser(User user) {
-        userRepository.save(user);
+    public User addUser(User user) {
+        var createUserBD = userRepository.save(user);
 //        myRestTemplate.callGetRequestStab("call", "1314");
+        return createUserBD;
     }
 
 
@@ -41,8 +39,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public String deleteUser(Long id) {
         userRepository.deleteById(id);
+        return "User with id: " + id + " was delete";
 //        log.info("Пользователь c id - " + id + " удален");
     }
 
@@ -56,7 +55,7 @@ public class UserServiceImpl implements UserService {
 //                map.get("number") != null ? Integer.parseInt(map.get("number").toString()) : 1,
 //                map.get("created_date") != null ? map.get("created_date").toString() : null,
 //                map.get("closed_date") != null ? map.get("closed_date").toString() : null);
-////                map.get("closed_date").toString());
+//                map.get("closed_date").toString());
 //        log.info(userCards.toString());
        // return userCards;
     }
@@ -67,7 +66,7 @@ public class UserServiceImpl implements UserService {
 //                map.get("number") != null?Integer.parseInt(map.get("number").toString()):0,
 //                map.get("created_date") != null?map.get("created_date").toString():null,
 //                map.get("closed_date") != null?map.get("closed_date").toString():null);
-////                map.get("closed_date").toString());
+//                map.get("closed_date").toString());
 //        log.info(userCards.toString());
 //        return userCards;
 //    }

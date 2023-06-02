@@ -23,7 +23,7 @@ import java.util.Map;
 public class MyRestTemplate {
 
     private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
+//    private final ObjectMapper objectMapper;
 
     public String callGetRequestStab(){
         String url = "http://localhost:1314/call";

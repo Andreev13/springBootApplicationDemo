@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 import com.example.demo.models.Card;
-import com.example.demo.models.User;
 
 import java.util.List;
 

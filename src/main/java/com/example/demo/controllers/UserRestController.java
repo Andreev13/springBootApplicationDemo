@@ -1,10 +1,10 @@
 package com.example.demo.controllers;
 
-import com.example.demo.dto.UserCards;
 import com.example.demo.models.User;
 import com.example.demo.services.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
