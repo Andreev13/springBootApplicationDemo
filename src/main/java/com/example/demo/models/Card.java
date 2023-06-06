@@ -28,6 +28,13 @@ public class Card {
     @Column(name = "closed_date")
     private String closedDate;
 
+    public Card(Long id, int number, String createdDate, String closedDate) {
+        this.id = id;
+        this.number = number;
+        this.createdDate = createdDate;
+        this.closedDate = closedDate;
+    }
+
     @ManyToOne(
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL

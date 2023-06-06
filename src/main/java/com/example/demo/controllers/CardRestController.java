@@ -1,12 +1,14 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Card;
+import com.example.demo.services.CardService;
 import com.example.demo.services.CardServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -14,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CardRestController {
 
-    private CardServiceImpl cardService;
+    private CardService cardService;
 
     @PostMapping(value = "/cards",
             consumes = MediaType.APPLICATION_JSON_VALUE,
@@ -27,8 +29,9 @@ public class CardRestController {
 
     @GetMapping("/cards")
     public List<Card> getAllCards() {
-        log.info(cardService.getAllCards().toString());
-        return cardService.getAllCards();
+        var list = cardService.getAllCards();
+        log.info(String.valueOf(list));
+        return list;
     }
 
     @GetMapping("/cards/{id}")
@@ -40,6 +43,6 @@ public class CardRestController {
     public String deleteCardById(@PathVariable int id){
         log.info("Card c id - " + id + " удалена");
         cardService.deleteCard(id);
-        return "Card c id - " + id + " удалена";
+        return "Card c id - " + id + " delete";
     }
 }
