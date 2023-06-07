@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Table(name = "users")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
@@ -33,5 +35,10 @@ public class User {
     )
     private List<Card> cards;
 
+    public User(String name, int age, String city) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
 }
 
